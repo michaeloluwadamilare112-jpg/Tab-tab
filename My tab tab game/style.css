@@ -1,0 +1,383 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+    --primary:#00d4ff;
+    --secondary:#7c3aed;
+    --gold:#ffd700;
+    --dark:#0f172a;
+    --dark2:#1e293b;
+    --glass:rgba(255,255,255,0.08);
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,var(--dark),var(--dark2));
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Animated Background */
+
+.background-glow{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.background-glow::before,
+.background-glow::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    filter:blur(120px);
+    animation:floatGlow 12s infinite alternate;
+}
+
+.background-glow::before{
+    background:var(--primary);
+    top:-100px;
+    left:-100px;
+}
+
+.background-glow::after{
+    background:var(--secondary);
+    bottom:-100px;
+    right:-100px;
+}
+
+@keyframes floatGlow{
+    from{
+        transform:translateY(0) translateX(0);
+    }
+    to{
+        transform:translateY(100px) translateX(100px);
+    }
+}
+
+/* Container */
+
+.game-container{
+    width:95%;
+    max-width:500px;
+    margin:20px auto;
+    padding:20px;
+}
+
+/* Header */
+
+header{
+    text-align:center;
+}
+
+h1{
+    font-size:2rem;
+    margin-bottom:20px;
+    text-shadow:0 0 15px var(--primary);
+}
+
+.top-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.stat-card{
+    background:var(--glass);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.stat-card span{
+    font-size:.8rem;
+    opacity:.8;
+}
+
+.stat-card h2{
+    margin-top:5px;
+}
+
+/* XP Bar */
+
+.xp-container{
+    width:100%;
+    height:18px;
+    background:rgba(255,255,255,.08);
+    border-radius:30px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+#xpBar{
+    width:0%;
+    height:100%;
+    border-radius:30px;
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+    transition:.4s;
+}
+
+#xpText{
+    margin-top:8px;
+    font-size:.9rem;
+}
+
+/* Tap Area */
+
+main{
+    text-align:center;
+    margin-top:30px;
+}
+
+#tapButton{
+    width:220px;
+    height:220px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:5rem;
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    box-shadow:
+    0 0 20px var(--primary),
+    0 0 50px rgba(0,212,255,.5);
+
+    transition:.1s;
+}
+
+#tapButton:hover{
+    transform:scale(1.05);
+}
+
+#tapButton:active{
+    transform:scale(.9);
+}
+
+.multiplier-box{
+    margin-top:20px;
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+/* Floating Numbers */
+
+.float-text{
+    position:absolute;
+    color:var(--gold);
+    font-weight:bold;
+    pointer-events:none;
+    animation:floatUp 1s forwards;
+}
+
+@keyframes floatUp{
+    0%{
+        opacity:1;
+        transform:translateY(0);
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-100px);
+    }
+}
+
+/* Shop */
+
+.shop{
+    margin-top:35px;
+}
+
+.shop h2{
+    margin-bottom:15px;
+}
+
+.shop button{
+    width:100%;
+    margin-bottom:12px;
+    padding:15px;
+
+    border:none;
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #1f2937,
+        #334155
+    );
+
+    color:white;
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.shop button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+/* Achievements */
+
+.achievements{
+    margin-top:35px;
+}
+
+.achievements h2{
+    margin-bottom:15px;
+}
+
+.achievements ul{
+    list-style:none;
+}
+
+.achievements li{
+    padding:12px;
+    margin-bottom:10px;
+
+    background:var(--glass);
+
+    border-radius:12px;
+
+    border:1px solid
+    rgba(255,255,255,.08);
+}
+
+/* Daily Reward */
+
+.daily{
+    margin-top:35px;
+}
+
+.daily button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #22c55e
+    );
+
+    color:white;
+    cursor:pointer;
+}
+
+/* Skins */
+
+.skins{
+    margin-top:35px;
+}
+
+.skin-btn{
+    width:100%;
+    padding:15px;
+    margin-bottom:10px;
+
+    border:none;
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0ea5e9,
+        #2563eb
+    );
+
+    color:white;
+    cursor:pointer;
+}
+
+/* Rebirth */
+
+footer{
+    margin-top:40px;
+}
+
+#rebirthBtn{
+    width:100%;
+    padding:18px;
+
+    border:none;
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f59e0b,
+        #ef4444
+    );
+
+    color:white;
+    font-weight:bold;
+    font-size:1rem;
+
+    cursor:pointer;
+}
+
+/* Particles */
+
+.particle{
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    pointer-events:none;
+    background:white;
+    animation:particle 800ms linear forwards;
+}
+
+@keyframes particle{
+    to{
+        transform:
+        translate(
+            var(--x),
+            var(--y)
+        );
+
+        opacity:0;
+    }
+}
+
+/* Responsive */
+
+@media(max-width:600px){
+
+    #tapButton{
+        width:180px;
+        height:180px;
+        font-size:4rem;
+    }
+
+    .top-stats{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        font-size:1.7rem;
+    }
+}
