@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tap Master Ultra</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="game-container">
+
+<header>
+
+<h1>💎 Tap Master Ultra</h1>
+
+<div class="top-stats">
+
+<div class="stat-card">
+<span>Coins</span>
+<h2 id="coins">0</h2>
+</div>
+
+<div class="stat-card">
+<span>Gems</span>
+<h2 id="gems">0</h2>
+</div>
+
+<div class="stat-card">
+<span>Level</span>
+<h2 id="level">1</h2>
+</div>
+
+</div>
+
+<div class="xp-container">
+<div id="xpBar"></div>
+</div>
+
+<p id="xpText">0 / 100 XP</p>
+
+</header>
+
+<main>
+
+<button id="tapButton">💎</button>
+
+<div id="floatingContainer"></div>
+
+<div class="multiplier-box">
+Multiplier: x<span id="multiplier">1</span>
+</div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
